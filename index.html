@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+      </head>
+
+      <body>
+          <a-scene>
+
+            <a-camera position="0 5 15"></a-camera>
+          
+            <a-assets timeout="10000">
+
+                <a-asset-item id="thor" src="./models/thor/scene.gltf"></a-asset-item>
+          
+                <a-asset-item id="mjolnir" src="./models/mjolnir/scene.gltf"></a-asset-item>
+                
+                <img id="bg" src="./sky.jpg">
+          
+              </a-assets>
+
+              <a-sky src="#bg"></a-sky>
+
+
+              <a-entity light="type: ambient; intensity: 0.5;">
+            </a-entity>
+        
+        
+           
+            <a-entity animation="property: rotation; to: 0 360 0;easing:linear; loop: true; dur: 60000">
+        
+              <a-entity light="type: point; castShadow: true; intensity: 1; distance: 50; decay: 2; color:yellow"
+                position="-5.92951 8.39487 1.29438"></a-entity>
+        
+            </a-entity>
+
+            <a-circle position="-0.4 -0.76 -25" rotation="-90 0 0" radius="100" shadow="receive: true" visible="true"
+            color="#2E6F10">
+          </a-circle>
+
+          <a-entity>
+            <a-entity position="-2 0.4 3" rotation="0 0 0" scale="10.5 10.5 10.5" gltf-model="#thor" shadow="cast: true;">
+            </a-entity>
+          </a-entity>
+
+          <a-entity>
+            <a-entity position="-9 4 -8.2" rotation="0 90 0" scale="1 1 1" gltf-model="#mjolnir"
+              shadow="cast: true; receive: false">
+            </a-entity>
+          </a-entity>
+
+        </a-scene>
+      </body>
+</html>
